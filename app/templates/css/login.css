@@ -10,6 +10,8 @@ body {
     50% {background-position: 100% 50%;}
     10% {background-position: 0% 50%;}
 }
+
+
 .logo
 {
     top: 30px;
@@ -28,7 +30,7 @@ body {
     width: 500px;
     text-align: center;
     background: #fff;
-    height: 400px;
+    height: 410px;
     padding: 10px;
     margin: 50px auto;
     border-radius: 10px;
