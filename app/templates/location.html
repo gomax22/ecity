@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Location: {{ location.name }}</h1>
+    {% if location.address and location.city and location.country %}
+    <p>
+        {{ location.address }}, {{ location.city }}, {{ location.country }}
+    </p>
+    {% endif %}
+    <p>
+        Latitude: {{ location.latitude }}<br>
+        Longitude: {{ location.longitude }}<br>
+    </p>
+    {% if not current_user.has_saved(location) %}
+    <p>
+        <form action="{{url_for('save', location=location.name) }}" method="post">
+            {{ form.hidden_tag() }}
+            {{ form.submit(value='Save') }}
+        </form>
+    </p>
+    {% else %}
+    <p>
+        <form action="{{ url_for('remove', location=location.name) }}" method="post">
+            {{ form.hidden_tag() }}
+            {{ form.submit(value='Remove') }}
+        </form>
+    </p>
+    {% endif %}
+
+{% endblock %}

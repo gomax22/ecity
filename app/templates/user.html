@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>User: {{ user.username }}</h1>
+    <hr>
+    {% for location in user.my_location %}
+    {% if location.name and location.address and location.city and location.country %}
+    <p>
+        {{ location.name }} <br>
+        {{ location.address }}<br>
+        {{ location.city }}<br>
+        {{ location.country }}<br>
+    </p>
+    {% endif %}
+    {% endfor %}
+{% endblock %}
