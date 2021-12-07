@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    navigator.geolocation.watchPosition(
+        data => {
+
+            var server_data = [
+                {"latitude": data.coords.latitude},
+                {"longitude": data.coords.longitude},
+                {"accuracy": data.coords.accuracy}
+            ];
+            console.log(server_data);
+
+            $.ajax({
+                type: "POST",
+                url: "/process_data",
+                data: JSON.stringify(server_data),
+                contentType: "application/json",
+                dataType: 'json'
+            });
+        },
+        error => {
+            console.log(error)
+        },
+        {
+            enableHighAccuracy: true
+        }
+    );
+</script>
+{% endblock %}
