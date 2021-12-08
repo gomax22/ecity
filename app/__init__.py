@@ -7,6 +7,7 @@ from logging.handlers import RotatingFileHandler
 import os
 import logging
 from flask_mail import Mail
+from flask_bootstrap import Bootstrap
 
 # set the project root directory as the static folder, you can set others.
 app = Flask(__name__, static_url_path='')
@@ -23,6 +24,8 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
 mail = Mail(app)
+bootstrap = Bootstrap(app)
+
 
 if not app.debug:
     if not os.path.exists('logs'):

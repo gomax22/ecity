@@ -1,33 +1,79 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
 
-{% block content %}
-    <h1>Sign In</h1>
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
+        <title>E-CITY Login</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <section style="height: 100vh;">
             <div>
-                <img src="{{ url_for('static', filename='images/bici.png') }}" class="bici">
-
-                {{ form.username(size=32) }}<br>
-                {% for error in form.username.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" class="city">
+                </div>
+                <p class="sottotitolo"> Vivi un'esperienza turistica ecosostenibile
+                    <img src="{{ url_for('static', filename='images/point.png') }}" class="point">
+                </p>
+                <section class="padding">
+                    <form action="" method="post" novalidate>
+                        {{ form.hidden_tag() }}
+                        <div class="divlogin">
+                            <div class="login">Login for new experience</div>
+                            <hr style="border: 1px solid #ccc;">
+                            <div class="inner-div">
+                                <div class="flex">
+                                    <img src="{{ url_for('static', filename='images/bici.png') }}" class="bici img">
+                                    {{ form.username(size=32) }}<br>
+                                    {% for error in form.username.errors %}
+                                    <span style="color: red;">[{{ error }}]</span>
+                                    {% endfor %}
+                                </div>
+                                <div class="flex">
+                                    <img src="{{ url_for('static', filename='images/lente.png') }}" class="lente img">
+                                    {{ form.password(size=32) }}<br>
+                                    {% for error in form.password.errors %}
+                                    <span style="color: red;">[{{ error }}]</span>
+                                    {% endfor %}
+                                </div>
+                                <div class="flex">
+                                    <img src="{{ url_for('static', filename='images/spina.png') }}" class="spina img">
+                                <p class="butonlogin">{{ form.submit() }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <div class="d-flex justify-content-center links">
+                                <p>Don't have an account?<a href="{{ url_for('register') }}" class="ml-2">Sign Up</a></p>
+                            </div>
+                            <div class="d-flex justify-content-center links">
+                                <p>Forgot Your Password? <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a></p>
+                            </div>
+                        </div>
+                    </form>
+                </section><br>
+                <div class="footer-basic">
+                    <footer>
+                        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href="#">E-CITY</a></li>
+                            <li class="list-inline-item"><a href="#">Home</a></li>
+                            <li class="list-inline-item"><a href="#">About</a></li>
+                            <li class="list-inline-item"><a href="#">Contact Us</a></li>
+                            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                        </ul>
+                        <p class="copyright">E-City © 2022</p>
+                    </footer>
+                </div>
             </div>
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
-            {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit() }}</p>
-    </form>
-    <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
-    <p>
-        Forgot Your Password?
-        <a href="{{ url_for('reset_password_request') }}">Click to Reset It</a>
-    </p>
-{% endblock %}
+        </section>
+    </body>
+</html>

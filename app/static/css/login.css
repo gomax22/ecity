@@ -72,7 +72,7 @@ body {
     width: auto;
     height: 60px;
 }
-.input
+input
 {
     width: 50%;
     height: 40px;
@@ -83,6 +83,12 @@ body {
     padding: 0 10px;
     border-radius: 10px;
 
+}
+
+.flex {
+    display: flex;
+    margin: 2em;
+    vertical-align: center;
 }
 .butonlogin
 {
@@ -169,3 +175,18 @@ body
     margin-bottom:0;
     margin: 0px auto 0px auto;
 }
+
+#remember_me {
+    width: 1em;
+    height: 1em;
+}
+
+
+.inner-div {
+    vertical-align: center;
+}
+
+.img {
+    margin-right: 3em;
+}
+
