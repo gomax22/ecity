@@ -4,13 +4,23 @@
     <h1>User: {{ user.username }}</h1>
     <hr>
     {% for location in user.my_location %}
-    {% if location.name and location.address and location.city and location.country %}
     <p>
+        {% if location.name %}
         {{ location.name }} <br>
+        {% endif %}}
+
+        {% if location.address %}
         {{ location.address }}<br>
+        {% endif %}
+
+        {% if location.city %}
         {{ location.city }}<br>
+        {% endif %}
+
+        {% if location.country %}
         {{ location.country }}<br>
+        {% endif %}
+
     </p>
-    {% endif %}
     {% endfor %}
 {% endblock %}
