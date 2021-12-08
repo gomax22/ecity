@@ -90,13 +90,19 @@ input
     margin: 2em;
     vertical-align: center;
 }
+
+#submit  {
+    background: none !important;
+    color: #8be35b;
+}
+
 .butonlogin
 {
     width: 50%;
-    margin-top: 30px;
+    margin-top: 20px;
     height: 40px;
     font-weight: bold;
-    background: #05141e;
+    background: #1e0505;
     border: none;
     color: #abe18c;
     transition: all 250ms;
