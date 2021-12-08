@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory, request
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -8,8 +8,15 @@ import os
 import logging
 from flask_mail import Mail
 
+# set the project root directory as the static folder, you can set others.
+app = Flask(__name__, static_url_path='')
 
-app = Flask(__name__)
+
+@app.route('/static/<path:path>')
+def send_images(path):
+    return send_from_directory('static', path)
+
+
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)

@@ -145,4 +145,4 @@ def process_data():
     if request.method == "POST":
         data = request.get_json()
         print(data)
-    return redirect(url_for('explore'))
+    return redirect(url_for('explore')), 301
