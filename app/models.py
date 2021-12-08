@@ -64,6 +64,7 @@ class Location(db.Model):
     latitude = db.Column(db.Float)
     longitude = db.Column(db.Float)
     name = db.Column(db.String(64), index=True, unique=True)
+    body = db.Column(db.String(200))
     address = db.Column(db.String(64))
     city = db.Column(db.String(64))
     country = db.Column(db.String(64))
