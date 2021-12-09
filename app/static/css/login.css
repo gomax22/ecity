@@ -215,3 +215,9 @@ body
     margin-top: 0;
     padding-top: 0;
 }
+
+#submit {
+    font-family: inherit;
+    font-weight: bold;
+
+}
