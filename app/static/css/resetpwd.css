@@ -1,0 +1,94 @@
+body {
+    background: linear-gradient(90deg, rgb(83, 161, 117) 0%, rgb(177, 189, 173) 35%, rgb(173, 189, 180) 100%);
+
+    background-size: 400% 400%;
+    animation: BackgroundGradient 20s ease infinite;
+}
+
+@keyframes BackgroundGradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    10% {background-position: 0% 50%;}
+}
+.logo
+{
+    top: 30px;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    border-radius: 100px;
+    padding-bottom: 5%;
+
+}
+.city{
+    border-radius: 6.25rem;
+}
+
+#email {
+
+    height: 50px;
+    margin-top: 30px;
+    border: none;
+    background: #E5E5E5;
+    outline: none;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+
+.mail{
+    display: flex;
+    margin: 2em;
+    padding-left: 25%;
+
+
+
+}
+.o{
+    width: 700px;
+    text-align: center;
+    background: #fff;
+    height: 310px;
+    padding: 10px;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+ #submit {
+    outline: none;
+     width: 34%;
+    border: none;
+    font-weight: bold;
+    height: 40px;
+    margin-top: 30px;
+    background: none !important;
+    display: flex;
+    margin: 4em;
+    vertical-align: center;
+    color: #8be35b;
+}
+.btn:hover{
+    background: rgb(139, 187, 17);
+}
+
+
+.btn {
+    width: 25%;
+    height: 40px;
+    font-weight: bold;
+    background: #1e0505;
+    color: #abe18c;
+    transition: all 250ms;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.b{
+    margin: 2em;
+    padding-left: 25%;
+       width: 100%;
+    height: 40px;
+}
+h1{
+    font-family: "inherit";
+    font-size: 30px;
+}
