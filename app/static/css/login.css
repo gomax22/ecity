@@ -185,6 +185,7 @@ body
 #remember_me {
     width: 1em;
     height: 1em;
+    margin-right: 2em;
 }
 
 
@@ -196,3 +197,20 @@ body
     margin-right: 3em;
 }
 
+
+.remember {
+    display: inline-flex;
+    height: 50%;
+
+}
+
+.pass {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+.signin {
+    margin-top: 0;
+    padding-top: 0;
+}

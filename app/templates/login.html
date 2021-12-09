@@ -37,14 +37,17 @@
                                     <span style="color: red;">[{{ error }}]</span>
                                     {% endfor %}
                                 </div>
-                                <div class="flex">
+                                <div class="flex pass">
                                     <img src="{{ url_for('static', filename='images/lente.png') }}" class="lente img">
                                     {{ form.password(size=32) }}<br>
                                     {% for error in form.password.errors %}
                                     <span style="color: red;">[{{ error }}]</span>
                                     {% endfor %}
                                 </div>
-                                <div class="flex">
+                                <div class="remember">
+                                    <p id="remember_me" style="position: center;">{{ form.remember_me() }}</p> <p style="font-size:12px;">{{ form.remember_me.label }}</p>
+                                </div>
+                                <div class="flex signin">
                                     <img src="{{ url_for('static', filename='images/spina.png') }}" class="spina img">
                                 <p class="butonlogin">{{ form.submit() }}</p>
                                 </div>
