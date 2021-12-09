@@ -32,20 +32,23 @@
                             <div class="inner-div">
                                 <div class="flex">
                                     <img src="{{ url_for('static', filename='images/bici.png') }}" class="bici img">
-                                    {{ form.username(size=32) }}<br>
+                                    {{ form.username(size=32, placeholder="Username") }}<br>
                                     {% for error in form.username.errors %}
                                     <span style="color: red;">[{{ error }}]</span>
                                     {% endfor %}
                                 </div>
                                 <div class="flex pass">
                                     <img src="{{ url_for('static', filename='images/lente.png') }}" class="lente img">
-                                    {{ form.password(size=32) }}<br>
+                                    {{ form.password(size=32, placeholder= "•••••••••••") }}<br>
                                     {% for error in form.password.errors %}
                                     <span style="color: red;">[{{ error }}]</span>
                                     {% endfor %}
                                 </div>
-                                <div class="remember">
-                                    <p id="remember_me" style="position: center;">{{ form.remember_me() }}</p> <p style="font-size:12px;">{{ form.remember_me.label }}</p>
+                                <div class=" remember">
+                                    <p id="remember_me" style="position: center;">
+
+                                        {{ form.remember_me() }}</p>
+                                    <p style="font-size:14.5px;">Keep me in</p>
                                 </div>
                                 <div class="flex signin">
                                     <img src="{{ url_for('static', filename='images/spina.png') }}" class="spina img">
