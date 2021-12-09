@@ -103,4 +103,15 @@ body {
 
 .form-group .fa-bicycle{
     font-size: 30px;
+    height: 40px;
+}
+
+#submit {
+    background: none !important;
+    color: white;
+    outline: none;
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+
 }
