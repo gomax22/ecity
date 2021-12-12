@@ -9,22 +9,60 @@
             var server_data = [
                 {"latitude": data.coords.latitude},
                 {"longitude": data.coords.longitude},
-                {"accuracy": data.coords.accuracy}
             ];
             console.log(server_data);
 
-            $.ajax({
+            /*  $.ajax({
                 type: "POST",
                 url: "/process_data",
                 data: JSON.stringify(server_data),
                 contentType: "application/json",
                 dataType: 'json'
             });
-        },
+
+            */
+
+            $.post('/process_data', {
+                latitude: data.coords.latitude,
+                longitude: data.coords.longitude
+            }).done(
+                function(response) {
+                    //javascript alert/confirm -> redirect to location's page
+
+                    if (response["exists"] == 0) return;
+
+                    let location_name = response["name"];
+                    let confirmMessage = confirm("Do you want to see " + location_name + "'s page?");
+
+                    var req = [
+                        {"name": location_name},
+                        {"notInterested": 0}
+                    ];
+
+                    if (confirmMessage) {
+                        console.log("Redirecting to location page...")
+                    } else {
+                        console.log("Redirect not allowed.");
+                        req["notInterested"] = 1
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/process_location",
+                        data: JSON.stringify(req),
+                        contentType: "application/json",
+                        dataType: 'json'
+                    });
+                }).fail(function() {
+                    console.log("Can't receive response from server.");
+                });
+            },
         error => {
+            //can't get geolocation
             console.log(error)
         },
         {
+            //geolocation options
             enableHighAccuracy: true
         }
     );
