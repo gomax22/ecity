@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
-{% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About E-City</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+{% endblock %}
+
+{% block app_content %}
+
+    <title></title>
+
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>

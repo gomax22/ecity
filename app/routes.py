@@ -7,11 +7,12 @@ from werkzeug.urls import url_parse
 from app.email import send_password_reset_email
 import json
 
+
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
-    return render_template('index.html')
+    return render_template('index.html', title='About E-City')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -57,7 +58,7 @@ def register():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    return render_template('user.html', user=user)
+    return render_template('user.html', user=user, title='E-CITY User')
 
 
 @app.route('/save/<location_name>', methods=['POST'])
@@ -172,7 +173,7 @@ def process_location():
     data = request.get_json()
     print(data)
 
-    if data["notInterested"] is True:
+    if data["notInterested"]:
         return None
 
     location_name = data["name"]

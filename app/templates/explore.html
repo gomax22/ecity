@@ -1,9 +1,94 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block styles %}
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> <!-- footer icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- bici -->
+	<link rel="stylesheet" href=" {{ url_for('static', filename='css/explore.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@4.7.0/dist/L.Control.Locate.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+{% endblock %}
+
+{% block app_content %}
+
+<section style="height: 100vh;">
+    <div>
+		<div id="mapid" style="height: 720px;"></div>
+    </div>
+</section>
+
+
+<div class="footer-basic">
+	<footer>
+		<div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+		<ul class="list-inline">
+			<li class="list-inline-item"><a href="#">E-CITY</a></li>
+			<li class="list-inline-item"><a href="#">Home</a></li>
+			<li class="list-inline-item"><a href="#">About</a></li>
+			<li class="list-inline-item"><a href="#">Contact Us</a></li>
+			<li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+		</ul><br>
+		<p class="copyright">E-City © 2022</p>
+	</footer>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
 <script>
-    navigator.geolocation.watchPosition(
+
+	var map = L.map('mapid', {doubleClickZoom: false}).locate({setView: true, maxZoom: 20});
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+   				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+			}).addTo(map);
+
+	var lc = L.control.locate({
+		setView: 'untilPanOrZoom',
+		keepCurrentZoomLevel: false,
+		initialZoomLevel: false,
+		flyTo: true,
+   		position: 'topright',
+    	strings: {
+        	title: "Show me where I am, yo!"
+    	},
+		clickBehavior: {
+                /** What should happen if the user clicks on the control while the location is within the current view. */
+                inView: 'stop',
+                /** What should happen if the user clicks on the control while the location is outside the current view. */
+                outOfView: 'setView',
+                /**
+                 * What should happen if the user clicks on the control while the location is within the current view
+                 * and we could be following but are not. Defaults to a special value which inherits from 'inView';
+                 */
+                inViewNotFollowing: 'inView',
+            }
+	}).addTo(map);
+
+	/*navigator.geolocation.getCurrentPosition(
+			function (position) {
+				latit = position.coords.latitude;
+    			longit = position.coords.longitude;
+    			// move the map to have the location in its center
+    			map.panTo(new L.LatLng(latit, longit));
+			});
+
+*/
+</script>
+
+
+
+<script>
+    /*navigator.geolocation.watchPosition(
         data => {
 
             var server_data = [
@@ -12,7 +97,7 @@
             ];
             console.log(server_data);
 
-            /*  $.ajax({
+             $.ajax({
                 type: "POST",
                 url: "/process_data",
                 data: JSON.stringify(server_data),
@@ -20,7 +105,7 @@
                 dataType: 'json'
             });
 
-            */
+
 
             $.post('/process_data', {
                 latitude: data.coords.latitude,
@@ -65,6 +150,7 @@
             //geolocation options
             enableHighAccuracy: true
         }
-    );
+    );*/
 </script>
+
 {% endblock %}

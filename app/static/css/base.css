@@ -1,0 +1,14 @@
+
+.navbar.navbar-dark.navbar-expand-md.bg-dark {
+    height: 100px;
+    background: linear-gradient(90deg, rgba(34, 65, 49, 0.85) 0%, rgba(80, 108, 34, 0.66) 35%, rgb(57, 61, 61) 100%);
+
+    background-size: 400% 400%;
+    animation: BackgroundGradient 20s ease infinite;
+    margin-bottom: -20px;
+}
+
+.fa.fa-bicycle {
+    font-size: 32px;
+    line-height: 0.8
+}
