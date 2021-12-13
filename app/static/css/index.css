@@ -88,7 +88,6 @@ body {
     background-size: 400% 400%;
     animation: BackgroundGradient 20s ease infinite;
     margin: 0;
-    overflow: hidden;
 }
 @keyframes BackgroundGradient {
     0% {background-position: 0% 50%;}

@@ -54,17 +54,13 @@ body {
 }
 
  #submit {
-    outline: none;
-     width: 34%;
+     width: 70%;
     border: none;
     font-weight: bold;
     height: 40px;
-    margin-top: 30px;
     background: none !important;
-    display: flex;
-    margin: 4em;
-    vertical-align: center;
     color: #8be35b;
+     margin-top: -5%;
 }
 .btn:hover{
     background: rgb(139, 187, 17);
@@ -79,8 +75,7 @@ body {
     color: #abe18c;
     transition: all 250ms;
     border-radius: 10px;
-    margin-left: 50px;
-    margin-top: 50px;
+    margin-left: -40%;
 }
 .b{
     margin: 2em;

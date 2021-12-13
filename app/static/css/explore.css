@@ -1,27 +1,18 @@
 body {
-    background: linear-gradient(90deg, rgb(83, 161, 117) 0%, rgb(177, 189, 173) 35%, rgb(173, 189, 180) 100%);
+    background: linear-gradient(90deg, rgb(83, 161, 117) 0%, rgb(108, 138, 99) 35%, rgb(16, 145, 75) 100%);
 
     background-size: 400% 400%;
     animation: BackgroundGradient 20s ease infinite;
     margin: 0;
+    overflow: hidden;
 }
 @keyframes BackgroundGradient {
     0% {background-position: 0% 50%;}
     50% {background-position: 100% 50%;}
     10% {background-position: 0% 50%;}
 }
-.google-maps {
-    position: center;
-    height: 0;
-}
-.google-maps > iframe {
-    position: absolute;
-    top: 33%;
-    left: 25%;
-    width: 50% !important;
-    height: 50% !important;
-    border-radius: 10px;
-}
+
+
 .city{
     border-radius: 6.25rem;
 }
@@ -36,9 +27,15 @@ body {
     border-radius: 100px;
 
 }
-.palazzo{
-    margin-top: 20px;
-    position: absolute;
-    height: 40px;
-    left: 600px;
+
+
+#mapid{
+    margin-top: 5%;
+}
+
+.t{
+    font-size: 16px;
+    margin-top: 10px;
+    font-family: inherit;
+    font-weight: bold;
 }

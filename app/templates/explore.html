@@ -19,24 +19,14 @@
 
 <section style="height: 100vh;">
     <div>
-		<div id="mapid" style="height: 720px;"></div>
+        <h1 class="t">Start your trip!</h1>
+    </div>
+    <div>
+		<div id="mapid" style="height: 520px;"></div>
     </div>
 </section>
 
 
-<div class="footer-basic">
-	<footer>
-		<div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
-		<ul class="list-inline">
-			<li class="list-inline-item"><a href="#">E-CITY</a></li>
-			<li class="list-inline-item"><a href="#">Home</a></li>
-			<li class="list-inline-item"><a href="#">About</a></li>
-			<li class="list-inline-item"><a href="#">Contact Us</a></li>
-			<li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-		</ul><br>
-		<p class="copyright">E-City © 2022</p>
-	</footer>
-</div>
 
 {% endblock %}
 
@@ -47,7 +37,7 @@
 
 <script>
 
-	var map = L.map('mapid', {doubleClickZoom: false}).locate({setView: true, maxZoom: 20});
+	var map = L.map('mapid', {doubleClickZoom: true}).locate({setView: true, maxZoom: 20});
 	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
    				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 			}).addTo(map);
