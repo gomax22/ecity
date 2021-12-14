@@ -4,7 +4,6 @@ from flask_login import UserMixin
 from time import time
 import jwt
 
-
 saved_locations = db.Table('saved_locations',
                            db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
                            db.Column('location_id', db.Integer, db.ForeignKey('location.id'), primary_key=True)
@@ -70,9 +69,11 @@ class Location(db.Model):
     country = db.Column(db.String(64))
 
     def __repr__(self):
-        return '<Location {}'.format(self.name)
+        rep = 'Location(name=' + self.name + ', lat=' + str(self.latitude) + ', lon=' + str(self.longitude) + ')'
+        return rep
 
 
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+

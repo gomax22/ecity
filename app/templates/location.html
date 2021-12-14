@@ -13,14 +13,14 @@
     </p>
     {% if not current_user.has_saved(location) %}
     <p>
-        <form action="{{url_for('save', location=location.name) }}" method="post">
+        <form action="{{url_for('save', location_name=location.name) }}" method="post">
             {{ form.hidden_tag() }}
             {{ form.submit(value='Save') }}
         </form>
     </p>
     {% else %}
     <p>
-        <form action="{{ url_for('remove', location=location.name) }}" method="post">
+        <form action="{{ url_for('remove', location_name=location.name) }}" method="post">
             {{ form.hidden_tag() }}
             {{ form.submit(value='Remove') }}
         </form>

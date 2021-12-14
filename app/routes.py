@@ -1,6 +1,6 @@
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EmptyForm, ResetPasswordRequestForm, ResetPasswordForm
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, jsonify
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Location
 from werkzeug.urls import url_parse
@@ -73,7 +73,7 @@ def save(location_name):
         current_user.save_location(location)
         db.session.commit()
         flash('You have saved {}!'.format(location_name))
-        return redirect(url_for('location', location=location_name))  # redirect to location page
+        return redirect(url_for('location', location_name=location_name))  # redirect to location page
     else:
         return redirect(url_for('index'))
 
@@ -90,7 +90,7 @@ def remove(location_name):
         current_user.remove_location(location)
         db.session.commit()
         flash('You have removed {}'.format(location_name))
-        return redirect(url_for('location', location=location.name))  # redirect to location page
+        return redirect(url_for('location', location_name=location.name))  # redirect to location page
     else:
         return redirect(url_for('index'))
 
@@ -151,30 +151,36 @@ def process_data():
     }
     #   query to know if user is in a location range, accuracy = 0.000005
     #   calculate user geolocation range
-    minLongitudeUser = data["longitude"] - 0.000005
-    maxLongitudeUser = data["longitude"] + 0.000005
-    minLatitudeUser = data["latitude"] - 0.000005
-    maxLatitudeUser = data["latitude"] + 0.000005
+    #   minLongitudeUser = data["longitude"] - 0.000005
+    #   maxLongitudeUser = data["longitude"] + 0.000005
+    #   minLatitudeUser = data["latitude"] - 0.000005
+    #   maxLatitudeUser = data["latitude"] + 0.000005
 
     #   query to get the nearest location from user if it exists according to accuracy parameter
-    location = Location.query.filter(Location.latitude >= minLatitudeUser,
-                                     Location.latitude <= maxLatitudeUser,
-                                     Location.longitude >= minLongitudeUser,
-                                     Location.longitude <= maxLongitudeUser).first_or_404()
+    #   location = Location.query.filter(Location.latitude >= minLatitudeUser,
+    #                                    Location.latitude <= maxLatitudeUser,
+    #                                    Location.longitude >= minLongitudeUser,
+    #                                 Location.longitude <= maxLongitudeUser).first_or_404()
+
+    lat = data[0]["latitude"]
+    lon = data[1]["longitude"]
+    location = Location.query.filter_by(latitude=lat).first()
+
     #   send response to user in either case
-    if location is not None:
+    if location:
         response["name"] = location.name
-    return json.stringify(response)
+
+    return jsonify(response)
 
 
-@app.route('/process_location', methods=['POST'])
+@app.route('/process_location/<location_name>', methods=['POST'])
 @login_required
-def process_location():
-    data = request.get_json()
-    print(data)
+def process_location(location_name):
+#    data = request.get_json()
+#    print(data)
 
-    if data["notInterested"]:
-        return None
+#    if data["notInterested"]:
+#        return None
 
-    location_name = data["name"]
+#    location_name = data["name"]
     return redirect(url_for('location', location_name=location_name))

@@ -13,11 +13,11 @@
  <section style="height: 100vh; margin: 2em; padding-top: 2em">
     <h1 class="hi">Hi {{ user.username }}, welcome to your E-City Profile</h1>
     <hr>
-    {% for location in user.my_location %}
+    {% for location in user.my_locations %}
     <p>
         {% if location.name %}
         {{ location.name }} <br>
-        {% endif %}}
+        {% endif %}
 
         {% if location.address %}
         {{ location.address }}<br>

@@ -11,7 +11,7 @@
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@4.7.0/dist/L.Control.Locate.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.0/dist/L.Control.Locate.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 {% endblock %}
 
@@ -64,83 +64,63 @@
             }
 	}).addTo(map);
 
-	/*navigator.geolocation.getCurrentPosition(
-			function (position) {
-				latit = position.coords.latitude;
-    			longit = position.coords.longitude;
-    			// move the map to have the location in its center
-    			map.panTo(new L.LatLng(latit, longit));
-			});
 
-*/
-</script>
-
-
-
-<script>
-    /*navigator.geolocation.watchPosition(
+	navigator.geolocation.watchPosition(
         data => {
 
-            var server_data = [
-                {"latitude": data.coords.latitude},
-                {"longitude": data.coords.longitude},
-            ];
-            console.log(server_data);
+			var server_data = [
+				{"latitude": data.coords.latitude},
+				{"longitude": data.coords.longitude},
+			];
+			console.log(server_data);
 
-             $.ajax({
+			//send data to server
+			$.ajax({
                 type: "POST",
                 url: "/process_data",
                 data: JSON.stringify(server_data),
                 contentType: "application/json",
                 dataType: 'json'
-            });
-
-
-
-            $.post('/process_data', {
-                latitude: data.coords.latitude,
-                longitude: data.coords.longitude
             }).done(
-                function(response) {
-                    //javascript alert/confirm -> redirect to location's page
+					response => {
+						console.log(response);
 
-                    if (response["exists"] == 0) return;
+						if (response["exists"] == 0) return;
+						let confirmMessage = confirm("Do you want to see " + response["name"] + "'s page?");
+						if (confirmMessage) {
+							console.log("Redirecting to location page...")
 
-                    let location_name = response["name"];
-                    let confirmMessage = confirm("Do you want to see " + location_name + "'s page?");
+							const url = '/location/' + response["name"]
 
-                    var req = [
-                        {"name": location_name},
-                        {"notInterested": 0}
-                    ];
+							window.location.replace(url);
+						} else {
+							console.log("Redirect not allowed.");
+						}
 
-                    if (confirmMessage) {
-                        console.log("Redirecting to location page...")
-                    } else {
-                        console.log("Redirect not allowed.");
-                        req["notInterested"] = 1
-                    }
 
-                    $.ajax({
-                        type: "POST",
-                        url: "/process_location",
-                        data: JSON.stringify(req),
-                        contentType: "application/json",
-                        dataType: 'json'
-                    });
-                }).fail(function() {
-                    console.log("Can't receive response from server.");
-                });
-            },
-        error => {
-            //can't get geolocation
-            console.log(error)
-        },
-        {
-            //geolocation options
-            enableHighAccuracy: true
-        }
-    );*/
+					}
+			);
+
+		},
+		error => {
+			console.log(error);
+		});
+	/*
+	navigator.geolocation.getCurrentPosition(
+
+			function (position) {
+				latit = position.coords.latitude;
+    			longit = position.coords.longitude;
+
+				console.log(latit);
+				console.log(longit);
+
+    			// move the map to have the location in its center
+    			map.panTo(new L.LatLng(latit, longit));
+			});
+*/
+
+
 </script>
 
 {% endblock %}
