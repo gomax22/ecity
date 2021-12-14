@@ -1,0 +1,13 @@
+body {
+    background: linear-gradient(90deg, rgb(83, 161, 117) 0%, rgb(108, 138, 99) 35%, rgb(16, 145, 75) 100%);
+
+    background-size: 400% 400%;
+    animation: BackgroundGradient 20s ease infinite;
+    margin: 0;
+    overflow: hidden;
+}
+@keyframes BackgroundGradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    10% {background-position: 0% 50%;}
+}
