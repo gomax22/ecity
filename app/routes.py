@@ -169,6 +169,7 @@ def process_data():
     #   send response to user in either case
     if location:
         response["name"] = location.name
+        response["exists"] = 1
 
     return jsonify(response)
 
