@@ -1,0 +1,20 @@
+{
+  "name": "E-City",
+  "short_name": "E-City",
+  "description": "E-City PWA",
+  "icons": [
+    {
+      "src": "images/bici.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "lang": "en-US",
+  "start_url": "/index.html",
+  "scope": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "black",
+  "theme_color": "black"
+}
+
