@@ -19,7 +19,7 @@
 
 <section style="height: 100vh;">
     <div>
-        <h1 class="t">Start your trip!</h1>
+		<h1 class="t">Start your trip, <a id="username">{{ current_user.username }}</a>!</h1>
     </div>
     <div>
 		<div id="mapid" style="height: 520px;"></div>
@@ -64,6 +64,29 @@
             }
 	}).addTo(map);
 
+	//get username
+	const username = document.getElementById("username").innerText;
+	const url_location = '/get_saved_locations/' + username
+
+	//get user saved locations
+	//try $.getJSON
+	$.getJSON(url_location, response => {
+		for (let i = 0; i < response.length; ++i) {
+					const latitude = response[i]["latitude"];
+					const longitude = response[i]["longitude"];
+					const name = response[i]["name"];
+					console.log(latitude);
+					console.log(longitude);
+					console.log(name);
+
+					const marker = L.marker([latitude, longitude])
+							.addTo(map)
+							.bindPopup(name);
+
+				}
+				console.log(response);
+
+	});
 
 	navigator.geolocation.watchPosition(
         data => {
@@ -95,6 +118,7 @@
 							window.location.replace(url);
 						} else {
 							console.log("Redirect not allowed.");
+
 						}
 
 

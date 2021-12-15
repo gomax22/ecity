@@ -32,6 +32,10 @@ class User(UserMixin, db.Model):
             saved_locations.c.location_id == location.id).count() > 0
 
     def show_saved_locations(self):
+        for location in self.my_locations:
+            print(location)
+
+    def get_saved_locations(self):
         return self.my_locations
 
     def __repr__(self):

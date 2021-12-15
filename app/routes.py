@@ -160,11 +160,11 @@ def process_data():
     #   location = Location.query.filter(Location.latitude >= minLatitudeUser,
     #                                    Location.latitude <= maxLatitudeUser,
     #                                    Location.longitude >= minLongitudeUser,
-    #                                 Location.longitude <= maxLongitudeUser).first_or_404()
+    #                                 Location.longitude <= maxLongitudeUser).first()
 
     lat = data[0]["latitude"]
     lon = data[1]["longitude"]
-    location = Location.query.filter_by(latitude=lat).first()
+    location = Location.query.filter_by(latitude=lat, longitude=lon).first()
 
     #   send response to user in either case
     if location:
@@ -185,3 +185,23 @@ def process_location(location_name):
 
 #    location_name = data["name"]
     return redirect(url_for('location', location_name=location_name))
+
+
+@app.route('/get_saved_locations/<username>', methods=['GET', 'POST'])
+@login_required
+def get_saved_locations(username):
+    #   get user saved locations
+    user = User.query.filter_by(username=username).first()
+    user.show_saved_locations()
+    locations = user.get_saved_locations()
+
+    response = []
+    dummy = {}
+
+    for location in locations:
+        dummy["longitude"] = location.longitude
+        dummy["latitude"] = location.latitude
+        dummy["name"] = location.name
+
+        response.append(dummy)
+    return jsonify(response)
