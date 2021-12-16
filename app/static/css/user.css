@@ -24,6 +24,7 @@ a{
 }
 .box{
     padding:60px 0px;
+    padding-top: 0px;
 }
 .box-part{
     background:#FFF;
@@ -35,5 +36,8 @@ a{
     margin:20px 0px;
 }
 
+.savedlocation {
+    padding-top: 10px;
+}
 
 

@@ -32,7 +32,8 @@ let filesToCache = [
     './templates/register.html',
     './templates/reset_password.html',
     './templates/reset_password_request.html',
-    './templates/user.html'
+    './templates/user.html',
+    './templates/_location.html'
 ];
 
 

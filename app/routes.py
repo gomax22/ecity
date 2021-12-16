@@ -73,7 +73,7 @@ def save(location_name):
         current_user.save_location(location)
         db.session.commit()
         flash('You have saved {}!'.format(location_name))
-        return redirect(url_for('location', location_name=location_name))  # redirect to location page
+        return redirect(url_for('explore'))  # redirect to explore page
     else:
         return redirect(url_for('index'))
 
@@ -202,6 +202,10 @@ def get_saved_locations(username):
         dummy["longitude"] = location.longitude
         dummy["latitude"] = location.latitude
         dummy["name"] = location.name
+        dummy["body"] = location.body
+        dummy["address"] = location.address
+        dummy["city"] = location.city
+        dummy["country"] = location.country
 
         response.append(dummy)
     return jsonify(response)

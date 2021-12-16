@@ -13,142 +13,16 @@
  <section style="height: 100vh; margin: 2em; padding-top: 2em">
     <h1 class="hi">Hi {{ user.username }}, welcome to your E-City Profile</h1>
     <hr>
-    {% for location in user.my_locations %}
-    <p>
-        {% if location.name %}
-        {{ location.name }} <br>
-        {% endif %}
-
-        {% if location.address %}
-        {{ location.address }}<br>
-        {% endif %}
-
-        {% if location.city %}
-        {{ location.city }}<br>
-        {% endif %}
-
-        {% if location.country %}
-        {{ location.country }}<br>
-        {% endif %}
-
-    </p>
-    {% endfor %}
-
+     <h2 class="hi" id="savedlocation">Saved Location</h2>
  <div class="box">
     <div class="container">
      	<div class="row">
-
-			    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-					<div class="box-part text-center">
-
-
-						<div class="title">
-							<h4>Posto</h4>
-						</div>
-
-						<div class="text">
-							<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
-						</div>
-
-						<a href="#">Learn More</a>
-
-					 </div>
-				</div>
-
-				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-					<div class="box-part text-center">
-
-
-						<div class="title">
-							<h4>Posto</h4>
-						</div>
-
-						<div class="text">
-							<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
-						</div>
-
-						<a href="#">Learn More</a>
-
-					 </div>
-				</div>
-
-				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-					<div class="box-part text-center">
-
-
-						<div class="title">
-							<h4>Posto</h4>
-						</div>
-
-						<div class="text">
-							<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
-						</div>
-
-						<a href="#">Learn More</a>
-
-					 </div>
-				</div>
-
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-					<div class="box-part text-center">
-
-
-						<div class="title">
-							<h4>Posto</h4>
-						</div>
-
-						<div class="text">
-							<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
-						</div>
-
-						<a href="#">Learn More</a>
-
-					 </div>
-				</div>
-
-				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-					<div class="box-part text-center">
-
-
-						<div class="title">
-							<h4>Posto</h4>
-						</div>
-
-						<div class="text">
-							<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
-						</div>
-
-						<a href="#">Learn More</a>
-
-					 </div>
-				</div>
-
-				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-
-					<div class="box-part text-center">
-
-
-						<div class="title">
-							<h4>Posto</h4>
-						</div>
-
-						<div class="text">
-							<span>Lorem ipsum dolor sit amet, id quo eruditi eloquentiam. Assum decore te sed. Elitr scripta ocurreret qui ad.</span>
-						</div>
-
-						<a href="#">Learn More</a>
-
-					 </div>
-				</div>
-
+			{% for location in user.my_locations %}
+				{% include '_location.html' %}
+			{% endfor %}
 		</div>
     </div>
-</div>
+ </div>
 
 
 

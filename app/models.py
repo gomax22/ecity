@@ -73,7 +73,7 @@ class Location(db.Model):
     country = db.Column(db.String(64))
 
     def __repr__(self):
-        rep = 'Location(name=' + self.name + ', lat=' + str(self.latitude) + ', lon=' + str(self.longitude) + ')'
+        rep = 'Location(name=' + str(self.name) + ', lat=' + str(self.latitude) + ', lon=' + str(self.longitude) + ', body=' + str(self.body) + ', address=' + str(self.address) + ', city=' + str(self.city) + ', country=' + str(self.country) + ')'
         return rep
 
 
