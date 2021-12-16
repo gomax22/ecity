@@ -13,6 +13,7 @@ section .section-title{
     font-family: Arvo;
 }
 
+
 .container-fluid{
     margin: auto;
     width: 50%;
@@ -83,7 +84,7 @@ section .section-title{
     transition: .5s all ease;
 }
 body {
-    background: linear-gradient(90deg, rgb(83, 161, 117) 0%, rgb(177, 189, 173) 35%, rgb(173, 189, 180) 100%);
+    background: linear-gradient(90deg, rgb(83, 161, 117) 0%, rgb(108, 138, 99) 35%, rgb(16, 145, 75) 100%);
 
     background-size: 400% 400%;
     animation: BackgroundGradient 20s ease infinite;

@@ -8,8 +8,8 @@ country= "Italy";
 
 
 --Deutsche Bank Easy--
-latitude= 40.85754268650449;
-longitude= 14.28306836426279;
+latitude= 40.857542;
+longitude= 14.283068;
 name= "Deutsche Bank Easy";
 address= "Centro Direzionale Isola A3, E2/A/6, 80143 Napoli NA"
 city= "Napoli";

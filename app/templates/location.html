@@ -12,7 +12,7 @@
 
 {% block app_content %}
      <section style="height: 100vh; margin: 2em; padding-top: 2em">
-    <h1>Location: {{ location.name }}</h1>
+    <h1 style="margin-bottom: 5%">Location: {{ location.name }}</h1>
     {% if location.address and location.city and location.country %}
     <p style="font-size: 25px">
         {{ location.address }}, {{ location.city }}, {{ location.country }}
