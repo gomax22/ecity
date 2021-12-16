@@ -2,7 +2,7 @@
 
 {% block styles %}
 
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/explore.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/location.css') }}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- bici -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
@@ -12,31 +12,40 @@
 
 {% block app_content %}
      <section style="height: 100vh; margin: 2em; padding-top: 2em">
+    <div class="save">
     <h1 style="margin-bottom: 5%">Location: {{ location.name }}</h1>
+     <hr>
     {% if location.address and location.city and location.country %}
     <p style="font-size: 25px">
         {{ location.address }}, {{ location.city }}, {{ location.country }}
     </p>
+        <hr>
     {% endif %}
     <p style="font-size: 25px">
         Latitude: {{ location.latitude }}<br>
+    </p>
+     <hr>
+     <p style="font-size: 25px">
+
         Longitude: {{ location.longitude }}<br>
     </p>
+    <hr>
     {% if not current_user.has_saved(location) %}
     <p>
-        <form  style="margin-left: 10%;" action="{{url_for('save', location_name=location.name) }}" method="post" class="s">
+        <form  class="btn" action="{{url_for('save', location_name=location.name) }}" method="post" class="s">
             {{ form.hidden_tag() }}
             {{ form.submit(value='Save') }}
         </form>
     </p>
     {% else %}
     <p>
-        <form style="margin-left: 8%;"  action="{{ url_for('remove', location_name=location.name) }}" method="post">
+        <form class="btn"  action="{{ url_for('remove', location_name=location.name) }}" method="post">
             {{ form.hidden_tag() }}
             {{ form.submit(value='Remove') }}
         </form>
     </p>
     {% endif %}
+    </div>
      <div class="footer-basic" style="position: absolute; bottom: 0; width: 100%; left: 0;">
         <footer>
             <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>

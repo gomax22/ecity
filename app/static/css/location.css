@@ -12,3 +12,42 @@ body {
     10% {background-position: 0% 50%;}
 }
 
+.save{
+    width: 600px;
+    text-align: center;
+    background: #fff;
+    height: 410px;
+    padding: 10px;
+    margin: 60px auto;
+    border-radius: 10px;
+}
+
+input
+{
+    width: 50%;
+    height: 40px;
+    border: none;
+    background: #E5E5E5;
+    outline: none;
+    padding: 0 10px;
+    border-radius: 10px;
+
+}
+
+
+.btn{
+    width: 30%;
+    margin-top: 20px;
+    height: 40px;
+    font-weight: bold;
+    background: #1e0505;
+    border: none;
+    color: #abe18c;
+    border-radius: 10px;
+}
+
+#submit  {
+    background: none !important;
+    color: #8be35b;
+    margin-top: -5%;
+}
