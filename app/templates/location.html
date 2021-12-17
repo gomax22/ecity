@@ -30,6 +30,10 @@
         Longitude: {{ location.longitude }}<br>
     </p>
     <hr>
+    <p style="font-size: 25px">
+        {{ location.body }} <br>
+    </p>
+    <hr>
     {% if not current_user.has_saved(location) %}
     <p>
         <form  class="btn" action="{{url_for('save', location_name=location.name) }}" method="post" class="s">
