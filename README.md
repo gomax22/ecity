@@ -19,3 +19,5 @@ Once you have your schema for the relational database, you can create it using t
 - flask db upgrade
 
 To use email support, you need to set properly environment variables in .flaskenv file.
+
+© 2022 Massimiliano Giordano Orsini, Dominick Ferraro - No Rights Reserved.
