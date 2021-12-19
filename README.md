@@ -1,5 +1,6 @@
 # E-City
-E-City GitHub Repository for TW6 
+E-City GitHub Repository for TW6.
+
 Inspired by Miguel Grinberg's "Microblog" project and by "TW6" course at "Università degli Studi di Napoli 'Parthenope'", we were going to create a PWA that could solve few tasks.
 Using the Web browser's geolocation feature, users can save their favourite locations.
 Users and Locations are recorded into a relational database, based on a simple schema that you can see in "app/models.py".
