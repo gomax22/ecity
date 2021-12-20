@@ -1,4 +1,6 @@
 # E-City
+![logo copia](https://user-images.githubusercontent.com/56475652/146764130-49c814de-851d-49d3-b273-e51139ab7c17.png)
+
 E-City GitHub Repository for TW6.
 
 Inspired by Miguel Grinberg's "Microblog" project and by "TW6" course at "Università degli Studi di Napoli 'Parthenope'", we were going to create a PWA that could solve few tasks.
