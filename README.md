@@ -13,7 +13,9 @@ Actually, this project is set to be ready for simply and basic purposes. This pr
 Web Tecnologies used for this project are: HTML5, JS, Leaflet.js using OpenStreetMap tiles, CSS3 Bootstrap for front-end development, Python3 and Flask microframework for back-end development. In particular, we decided to implement a relation database using Flask SQLAlchemy.
 
 
-We recommend to install requirements in your virtual environment before starting to work on this and to optimize the basic back-end logic.
+We recommend to install requirements in your virtual environment before starting to work on this and to optimize the basic back-end logic. To install requirements, launch this command:
+pip install -r requirements.txt
+ 
 To use this PWA you need to create your own database and run production server on your virtual environment.
 Once you have your schema for the relational database, you can create it using these simple commands in your shell:
 - flask db init
